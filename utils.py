@@ -160,7 +160,7 @@ def visualize_simulation(x_pts, y_pts, num_pts, fig, log_intervals, steps, pi, c
 
 # Parse cooling_info file
 def init_temp(dirname, newfmt=0):
-  fname='MC_Liquid_Crystal/runs/{}/lqs_2_coolinfo.txt'.format(dirname)
+  fname='MC_Liquid_Crystals/runs/{}/lqs_2_coolinfo.txt'.format(dirname)
 
   t,  energy , temp, count = [],[],[],0
   file = open(fname)
@@ -315,7 +315,7 @@ def plot_cystal_state(fnum, t, energy, temp, S):
 # Piecing it together
 def plot_lc_simulation(dir, newfmt=0):
 
-  files = sorted(glob.glob("MC_Liquid_Crystal/runs/{}/*.xyz".format(dir)))
+  files = sorted(glob.glob("MC_Liquid_Crystals/runs/{}/*.xyz".format(dir)))
   l=len(files)
   t, energy, temp = init_temp(dir, newfmt)
   S_all, eigen_all = [], []
