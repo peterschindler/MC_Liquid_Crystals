@@ -237,6 +237,8 @@ def plot_liquid_crystal(fname, fnum, max_eig, temp, do_plt = 1):
       x[0],y[0]=locs[i][1],locs[i][2]
       x[1],y[1]=locs[i][1]+vecs[i][1]/2,locs[i][2]+vecs[i][2]/2
       ax1.plot(x,y, 'lime')
+      ax1.set_xticks([])
+      ax1.set_yticks([])
 
 
   # Plot principal eigen vector or prominent direction of the crystal
@@ -270,7 +272,7 @@ def plot_cystal_state(fnum, t, energy, temp, S):
 
   plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0.5, hspace=None)
   x0,x1 = min(temp), max(temp)
-  y0,y1 = min(energy)*1.8, max(energy)*1.5
+  y0,y1 = min(energy)*1.5, max(energy)*0.5
   ax3.set(xlim=(x1, x0),ylim=(y0,y1))
   ax3.set_aspect(abs(x1-x0)/abs(y1-y0))
   if do_color:
