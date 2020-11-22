@@ -303,7 +303,7 @@ def plot_cystal_state(fnum, t, energy, temp, S):
   else:
       ax2.plot(t[:fnum], S[:fnum])
 
-  ax2.set_xlabel('Time', fontsize=15)
+  ax2.set_xlabel('Step', fontsize=15)
   ax2.set_ylabel('Order parameter', fontsize=15)
 
 
