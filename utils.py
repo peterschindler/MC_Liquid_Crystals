@@ -15,7 +15,6 @@ import math
 
 # Get logarithmic spaced interval for the simulation if num_points > 100
 def get_logaritmic_spacing(num_pts):
-  #global log_intervals, steps, pi, color_array, fig, text_time, text_pi, sc, PLOT
   log_intervals = []
   idx = 30
   LOG = 1.5
@@ -49,7 +48,6 @@ def estimate_area_sim(x_pts, y_pts):
 
 # Calculate value of Pi for each interval
 def calculate_pi_approx(num_pts, x_pts, y_pts, log_intervals):
-  #global steps, pi, color_array, fig, text_time, text_pi, sc, PLOT
   steps, pi =[], []
   x_pts[0], y_pts[0] = 0.25,0.25 #Init first point inside the circle
 
@@ -77,7 +75,6 @@ def run_mc_simulation(num_pts, x_pts, y_pts):
 
 # Init plot layout
 def init_plots(num_pts, steps, pi, color_array):
-  #global log_intervals, color_array, fig, text_time, text_pi, sc, PLOT
   fig, (ax01,ax02) = plt.subplots(1,2,  figsize=(14,7), gridspec_kw={'width_ratios': [1, 2]})
   plt.tight_layout()
   plt.close()
@@ -121,7 +118,6 @@ def init_plots(num_pts, steps, pi, color_array):
 
 # Update the scatter plot and pi-value plot with each linear/logarithmic interval
 def animate(i, x_pts, y_pts, num_pts, log_intervals, steps, pi, color_array, fig, text_time, text_pi, sc, PLOT):
-    #global num_pts, log_intervals, steps, pi, color_array, fig, text_time, text_pi, sc, PLOT
     pts_range = range(log_intervals[i]) if i==0 else range(log_intervals[i-1],log_intervals[i],1)
 
     for pts in pts_range:
@@ -142,7 +138,6 @@ def animate(i, x_pts, y_pts, num_pts, log_intervals, steps, pi, color_array, fig
 
 # Function to visualize and update plots
 def visualize_simulation(x_pts, y_pts, num_pts, fig, log_intervals, steps, pi, color_array):
-  #global steps, pi, color_array, text_time, text_pi, sc, PLOT
   fig, text_time, text_pi, sc, PLOT = init_plots(num_pts, steps, pi, color_array)
   # Finally call the plotting function to display the Monte Carlo simulation
   ani = matplotlib.animation.FuncAnimation(fig, animate,
@@ -253,7 +248,7 @@ def plot_liquid_crystal(fname, fnum, max_eig, temp, do_plt = 1):
     x[1],y[1]=N*0.82 + max_eig[1] ,N*0.87 + max_eig[2]
     ax1.plot(x,y, 'yellow', linewidth=3)
 
-    ax1.set_xlabel('T = %.1f' % (temp[fnum]), fontsize = 12, c = 'b')
+    ax1.set_xlabel('T = %.2f' % (temp[fnum]), fontsize = 12, c = 'b')
     ax1.xaxis.set_label_position('top')
   return [], []
 
